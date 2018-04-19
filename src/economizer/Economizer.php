@@ -51,8 +51,9 @@ class Economizer {
 		self::ESSENTIALSPE		=> EssentialsPE::class
 	];
 
-	public function __construct(Plugin $plugin, Transistor $transistor = null) {
-		parent::__construct($plugin, $transistor);
+	public function __construct(Economizer $economizer, Plugin $plugin, Transistor $transistor = null) {
+		parent::__construct($economizer, $plugin, $transistor);
+		$this->economizer = $economizer;
 		$this->main = $plugin;
 		if($transistor !== null) $this->transistor = $transistor;
 		self::$instance = $this;
