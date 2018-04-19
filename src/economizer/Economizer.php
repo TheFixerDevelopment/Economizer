@@ -53,6 +53,7 @@ class Economizer {
 	];
 
 	public function __construct(Plugin $plugin, Transistor $transistor = null) {
+		parent::__construct($plugin, $transistor);
 		$this->main = $plugin;
 		if($transistor !== null) $this->transistor = $transistor;
 		self::$instance = $this;
