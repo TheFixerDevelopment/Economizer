@@ -20,6 +20,7 @@
  namespace economizer;
  
 use pocketmine\plugin\Plugin;
+use pocketmine\plugin\PharPluginLoader;
 
 use economizer\transistor\EconomyAPI;
 use economizer\transistor\PocketMoney;
@@ -73,14 +74,14 @@ class Economizer {
 	/**
 	 * @return Transistor|null
 	 */
-	public function getTransistor() {
+	public function getTransistor() : null{
 		return $this->transistor;
 	}
 
 	/**
 	 * Makes code shorter
 	 */
-	public function __call($method, $arguments) {
+	public function __call(string $method, string $arguments) {
 		if(!method_exists($this, $method)) {
 			if(!$this->transistor) return;
 			if(method_exists($this->transistor, $method)) {
